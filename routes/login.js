@@ -6,5 +6,6 @@ exports.signIn = function(req, res){
   //	res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
   	//res.render('login', { title : 'About'});
 
-  	res.render("login",{selectedSignIn : "false"});
+  	res.render("login",{selectedSignIn : "false",selectedRegister : "true"});
+  	res.end();
 };

@@ -10,25 +10,30 @@
   <link rel="stylesheet" href="stylesheets/style.css">
   <script
   src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+  <script src="angularjs/index.js"></script>
+   <script src="angularjs/session.js"></script>
   <script src="angularjs/login.js"></script>
+
 </head>
 
-<body ng-app="login" ng-controller="loginController" >
+<body ng-app="mainApp" ng-controller="loginController" >
 <div class="container">
 <div class="row">
 <div class="col-md-12" style="height:50px;float:centre;">
- <a href="/"><img src="img/logo1.png"></a>
+ <!-- <a href="/"><img src="img/logo1.png"></a> -->
 </div>
 </div>
 
 <div class="row">
 
   <div class="col-md-4">
-  <h2> </h2>
+   
   </div>
     <div class="col-md-4">
+    <a href="/"><img src="img/logo1.png"></a>
 <br>
 <br>
+
       <ul class="nav nav-tabs">
       <li><a href="#" ng-click="selectedSigninTab();"><span class="glyphicon glyphicon-arrow-right">SignIn</span></a></li>
       <li><a href="#" ng-click="selectedRegisterTab();"><span class="glyphicon glyphicon-plus">Register</span></a></li>
