@@ -1,0 +1,29 @@
+<html>
+<head>
+<% include partials/header.ejs %>
+<script src="angularjs/index.js"></script>
+  <script src="angularjs/session.js"></script>
+  <script src="angularjs/login.js"></script>
+  <script src="angularjs/mainController.js"></script>
+<script src="angularjs/header.js"></script>
+<script src="angularjs/ads.js"></script>
+<script src="angularjs/cart.js"></script>
+
+</head>
+<body ng-app="mainApp" ng-controller="checkoutController">
+<% include partials/top-bar.ejs %>
+<br>
+<br>
+<div class="container">
+	<div class="row">
+		<div class="col-md-6">
+			<div ng-repeat="item in itemsincart">
+				{{item.item_name}}
+				{{orderedquantities[$index]}}
+			</div>
+
+			Amount: {{cost}}
+		</div>
+	</div>
+</div>
+</html>

@@ -94,6 +94,7 @@ exports.addtoCart = function(req,res){
 
 req.session.cartitems.push(req.body.product);
 req.session.cartqty.push(req.body.quantity);
+console.log("cost for :"+req.body.product.item_name+" is:"+(req.body.product.item_price*req.body.quantity));
 req.session.checkoutAmount = req.session.checkoutAmount + (req.body.product.item_price*req.body.quantity)
 console.log(req.body.product+"ordered quantity"+req.body.quantity);
 	console.log(req.session.cartitems);

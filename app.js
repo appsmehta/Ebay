@@ -12,7 +12,8 @@ var express = require('express')
   , register = require('./routes/register')
   ,session = require('client-sessions')
   ,aboutM = require('./routes/about')
-  ,adM = require('./routes/adM');
+  ,adM = require('./routes/adM')
+  ,checkout = require('./routes/checkout');
 
 var app = express();
 
@@ -51,6 +52,8 @@ app.get('/ads',adM.ad);
 app.get('/getAds',adM.getAds);
 app.post('/postAd',adM.postAd);
 app.post('/addItem',adM.addtoCart);
+app.get('/checkout',checkout.home);
+app.get('/getCart',checkout.getCart);
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
