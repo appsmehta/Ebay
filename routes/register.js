@@ -1,5 +1,6 @@
 var crypto = require('crypto');
 var mysql = require('./mysql');
+var dateFormat = require('dateFormat');
 require('ejs');
 
 exports.signup = function(req, res){
@@ -64,6 +65,32 @@ exports.authenticate= function(req,res){
 		if(results.length > 0){
 			console.log("valid Login");
 			req.session.username = username;
+			req.session.previous_logged_in = dateFormat(results[0].last_logged_in, "yyyy:mm:dd HH:MM:ss");
+			var previous_logged_in=results[0].last_logged_in;
+			console.log("Previous login:"+previous_logged_in);
+			var now = new Date();
+			console.log(now);
+			var mydate = dateFormat(now, "yyyy:mm:dd HH:MM:ss");
+			console.log(mydate);
+
+
+
+			var updateLastLoginQuery = "update users set `last_logged_in`='"+mydate+"' where `email`='"+req.session.username+"';";
+
+			 mysql.storeData(function(err,results){
+					if(err){
+						throw err;
+					}
+					else
+						{
+						 console.log("updated login timestamp data");
+						 console.log(results);
+						 
+						 //res.send("Tamaru Thai Gyu!");
+						}
+				},updateLastLoginQuery);
+
+
 			console.log("Session initialized");
 		/*	ejs.renderFile('./views/successLogin.ejs', { data: results } , function(err, result) {
 		        // render on success
@@ -76,7 +103,7 @@ exports.authenticate= function(req,res){
 		            console.log(err);
 		        }
 		    });*/
-			json_responses = {"statusCode" : 200,"username":req.session.username};
+			json_responses = {"statusCode" : 200,"username":req.session.username,"previous_logged_in":previous_logged_in};
 			res.send(json_responses);
 			
 			 

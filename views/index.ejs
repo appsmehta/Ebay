@@ -9,6 +9,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./stylesheets/slider.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link href="stylesheets/style.css" rel="stylesheet">
@@ -18,6 +19,8 @@
   <script src="angularjs/session.js"></script>
   <script src="angularjs/login.js"></script>
   <script src="angularjs/mainController.js"></script>
+
+  <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
 
 </head>
   <body ng-app="mainApp" ng-controller="mainController">
@@ -39,7 +42,12 @@
       	   <ul class="header-list-right">
       	     <span>
              <li>
+             <%if(previous_logged_in){%> <b> Last Login: <%}%> </b><%=previous_logged_in%>
+             </li>
+             <li>
+             <%if(username) { %>
              <a href="/logout">logout</a>
+             <%}%>
       	     	<li>
       	     	<span class="glyphicon glyphicon-shopping-cart"></span>
               </li>
@@ -84,8 +92,35 @@
     		
     	</div>
     	<div class="row ebay-main" style="height:200px;">
-    	 	<div class="col-md-2">
+    	 	<div class="col-md-12">
     			<p> Shop by category</p>
+          <!-- SLider -->
+
+           <h1>Incredibly Basic Slider</h1>
+              <div id="slider">
+                <a href="#" class="control_next">>></a>
+                <a href="#" class="control_prev">
+                  <</a>
+                    <ul>
+                      <li><a href="/ads"><img src="./img/slider1.jpeg"></a></li>
+                      <li style="background: #aaa;"><a href="/ads"><img src="./img/slider2.jpeg"></a></li>
+                      <li><a href="/ads"><img src="./img/slider3.jpeg"></a></li>
+                      <li style="background: #aaa;"><a href="/ads"><img src="./img/slider4.jpeg"></a></li>
+                    </ul>
+              </div>
+
+              <div class="slider_option">
+                <input type="checkbox" id="checkbox" checked="true" ng-show="true">
+                <label for="checkbox">Autoplay Slider</label>
+              </div>
+
+
+
+
+
+
+ <!-- SLider -->
+
     		</div>
     	</div>
     	<div class="row" style="height:400px;">
@@ -103,6 +138,55 @@
   </div>
 
 
+
+<script>
+jQuery(document).ready(function ($) {
+
+  
+    setInterval(function () {
+        moveRight();
+    }, 3500);
+
+  
+  var slideCount = $('#slider ul li').length;
+  var slideWidth = $('#slider ul li').width();
+  var slideHeight = $('#slider ul li').height();
+  var sliderUlWidth = slideCount * slideWidth;
+  
+  $('#slider').css({ width: slideWidth, height: slideHeight });
+  
+  $('#slider ul').css({ width: sliderUlWidth, marginLeft: - slideWidth });
+  
+    $('#slider ul li:last-child').prependTo('#slider ul');
+
+    function moveLeft() {
+        $('#slider ul').animate({
+            left: + slideWidth
+        }, 200, function () {
+            $('#slider ul li:last-child').prependTo('#slider ul');
+            $('#slider ul').css('left', '');
+        });
+    };
+
+    function moveRight() {
+        $('#slider ul').animate({
+            left: - slideWidth
+        }, 200, function () {
+            $('#slider ul li:first-child').appendTo('#slider ul');
+            $('#slider ul').css('left', '');
+        });
+    };
+
+    $('a.control_prev').click(function () {
+        moveLeft();
+    });
+
+    $('a.control_next').click(function () {
+        moveRight();
+    });
+
+});    
+</script>
 
 
   </body>

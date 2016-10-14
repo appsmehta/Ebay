@@ -77,3 +77,64 @@ exports.updateProfile = function (req,res){
 	res.send("ok");
 
 }
+
+
+exports.getBoughtItems = function (req,res){
+
+
+	var boughtItemQuery = "select * from orders where buyer = '"+req.session.username+"';";
+
+
+		mysql.fetchData(function(err,results){
+
+			if(err){
+			throw err;
+			}
+		else 
+		{
+			if(results.length > 0){
+
+			console.log(results[0]);
+
+			res.send({"data":results});
+				}
+	 		else {
+	 			 }
+
+		}
+
+		},boughtItemQuery);
+
+
+		
+
+}
+
+
+exports.getSoldItems = function (req,res){
+
+	var soldItemQuery = "select * from orders where seller_name = '"+req.session.username+"';";
+
+	mysql.fetchData(function(err,results){
+
+			if(err){
+			throw err;
+			}
+		else 
+		{
+			if(results.length > 0){
+
+			console.log(results[0]);
+
+			res.send({"data":results});
+				}
+	 		else {
+	 			 }
+
+		}
+
+		},soldItemQuery);
+
+
+
+}

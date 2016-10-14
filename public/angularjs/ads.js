@@ -17,6 +17,35 @@ mainApp.controller('adsController',function($scope,$http){
 					alert("error");			
 				});
 
+
+  $http({
+
+    method: 'GET',
+    url: '/getAuctions'
+      }).success(function(auctiondata){
+
+        console.log(auctiondata);
+
+        $scope.AuctionItems = auctiondata.auctions;
+        console.log($scope.AuctionItems[0].expires instanceof Date);
+        /*console.log("date is"+auctiondata.auctions[0].posted_at );
+         var numberOfDaysToAdd = 4;
+         var expires = new Date(auctiondata.auctions[0].posted_at);
+         expires.setDate(expires.getDate() + 4);
+      console.log(expires); */
+       
+
+
+
+
+
+      }).error(function(){
+
+        console.log("error");
+
+      })
+
+
 	
 
 
@@ -40,6 +69,30 @@ mainApp.controller('adsController',function($scope,$http){
 
 
   	 )
+  }
+
+  $scope.removeItem = function(product,qty)
+  {
+
+    console.log(product+" quantity"+qty);
+
+    $http.post('/removeItem',{product,qty})
+    .then(function(response)
+
+    {
+
+      console.log(JSON.stringify(response.data));
+      //$scope.items = data.ads;
+          $scope.itemsincart = response.data.itemsincart;
+          $scope.orderedqts = response.data.orderedquantities; 
+
+    }
+
+
+
+
+      )
+
   }
 
 });

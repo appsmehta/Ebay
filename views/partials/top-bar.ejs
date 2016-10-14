@@ -5,8 +5,8 @@
            <ul class="header-list-left">
            <span>
             <li>
-
-             <span> Hi! <%=username%> <%if(!username) { %><a href ="/signIn">Sign in</button> </a> or <a href="/Register" class="tile">Register</a><%}%></span>
+              
+             <span> Hi! <%=username%><%if(!username) { %><a href ="/signIn">Sign in</button> </a> or <a href="/Register" class="tile">Register</a><%}%></span>
             </li>
             <li>
                <a href="#"><span> Daily Deals</span></a>
@@ -16,7 +16,9 @@
            <ul class="header-list-right">
              <span>
              <li>
+             <%if(username) { %>
              <a href="/logout">logout</a>
+             <%}%>
               <li>
               <span class="glyphicon glyphicon-shopping-cart"></span>
               </li>

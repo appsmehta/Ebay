@@ -13,7 +13,8 @@ var express = require('express')
   ,session = require('client-sessions')
   ,aboutM = require('./routes/about')
   ,adM = require('./routes/adM')
-  ,checkout = require('./routes/checkout');
+  ,checkout = require('./routes/checkout'),
+  processCard = require('./routes/processCard');
 
 var app = express();
 
@@ -54,6 +55,13 @@ app.post('/postAd',adM.postAd);
 app.post('/addItem',adM.addtoCart);
 app.get('/checkout',checkout.home);
 app.get('/getCart',checkout.getCart);
+app.post('/processCard',processCard.validate);
+app.post('/removeItem',adM.removeFromCart);
+app.get('/sell',adM.sellHome);
+app.post('/postAuction',adM.postAuction);
+app.get('/getAuctions',adM.getAuctions);
+app.get('/getBoughtItems',aboutM.getBoughtItems);
+app.get('/getSoldItems',aboutM.getSoldItems);
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });

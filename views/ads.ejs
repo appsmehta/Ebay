@@ -24,10 +24,13 @@
 	</div>
 	<div class="row">
 		<div class="col-md-9">
-			<div class="jumbotron">
-			<div class="columns">
+		<div class="jumbotron container-fluid">
+			
 				<div ng-repeat="product in items">
-						
+				
+				<div class="col-md-4" style="height:226px;">
+
+
 							
 							<h4>{{product.item_name}}</h4><br>
 							<b>{{product.item_description}}</b><br>
@@ -37,8 +40,10 @@
 							 <label>Qty<input type="text" class="qty-box col-xs-4" name="orderQuantity" ng-model="orderQuantity"></label><br>
 							<button type="button" class="btn btn-info" ng-click="addItem(product,orderQuantity)">Add to Cart</button>
 							<br>
-							</div>
+							<br>
 				</div>
+				</div>
+				
 				
 			</div>
 		</div>
@@ -54,12 +59,47 @@
 							
 							Qty: {{orderedqts[$index]}}
 							Amount: {{orderedqts[$index]*cartitem.item_price}}<br>
+							<button type="button" class="btn btn-info" ng-click="removeItem($index,orderedqts[$index])">Remove from Cart</button>
 							---------------------------
 				</div>
 					<a href="/checkout" class="btn btn-primary">Proceed to Checkout</a>
 			</div>
 		</div>
 	</div>
+	<br>
+	<br>
+	<div class="row">
+	<div class="col-md-12">
+		<h2 class="deals-box"> Featured Auctions </h2>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-9">
+		<div class="jumbotron container-fluid">
+		<div ng-repeat="AuctionItem in AuctionItems">
+				
+				<div class="col-md-4" style="height:226px;">
+
+
+							
+							<h4>{{AuctionItem.item_name}}</h4><br>
+							<b>{{AuctionItem.item_description}}</b><br>
+							<b> Sold By: </b>{{AuctionItem.seller_name}}<br>
+							<b> Cost: {{Auction_item.item_price}}</b><br>
+							<b> Posted At: {{AuctionItem.posted_at  | date : 'medium'}}</b><br>
+							<b> Expires: {{AuctionItem.expires | date :'medium'}}</b>
+							<b> Remaining: 
+							
+							
+							<br>
+							<br>
+				</div>
+				</div>
+				
+				
+			</div>
+
+
 </div>
 
 </body>

@@ -4,7 +4,9 @@ mainApp.controller('aboutController',function($scope,$http,sessionservice){
 
 			$scope.loggedinuser = sessionservice.getuserdetails();
 
-			
+			$scope.showAbout = true;
+			$scope.showBought = false;
+		 	$scope.showSold = false;
 
 				$http({
 						method: 'GET',
@@ -55,10 +57,64 @@ mainApp.controller('aboutController',function($scope,$http,sessionservice){
 		 	 .error(function(){
 					alert("error");			
 					});
-
-
-
 		 	 
+		 }
+
+
+		 $scope.showBoughtItems = function ()
+		 {
+
+		 	$scope.showAbout = false;
+		 	$scope.showBought = true;
+		 	$scope.showSold = false;
+
+		 		$http({
+
+		 			method : 'GET',
+		 			url:'/getBoughtItems'
+		 		})
+		 		.success(function(data){
+
+
+		 			$scope.boughtItems = data.data;
+		 			console.log($scope.boughtItems);
+		 		})
+		 		.error(function(data){
+
+		 			console.log(data);
+
+		 		})
+
+
+
+
+		 }
+
+		 $scope.showSoldItems = function()
+		 {
+
+		 		$scope.showAbout = false;
+		 	$scope.showBought = false;
+		 	$scope.showSold = true;
+
+
+		 	$http({
+
+		 			method : 'GET',
+		 			url:'/getSoldItems'
+		 		})
+		 		.success(function(data){
+
+		 			console.log(data);
+		 			$scope.soldItems = data.data;
+		 			console.log($scope.soldItems);
+		 		})
+		 		.error(function(data){
+
+		 			console.log(data);
+
+		 		})
+
 		 }
 
 			
