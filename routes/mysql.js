@@ -29,10 +29,35 @@ function fetchData(callback,sqlQuery){
 			console.log("DB Results:"+rows);
 			callback(err, rows);
 		}
-	});
-	console.log("\nConnection closed..");
+			console.log("\nConnection closed..");
 	connection.end();
+
+	});
 }	
+
+
+function fetchBlockingData(sqlQuery, callback){
+
+console.log("\nSQL Query::"+sqlQuery);
+	
+	var connection=getConnection();
+	
+	connection.query(sqlQuery, function(err, rows, fields) {
+		if(err){
+			console.log("ERROR: " + err.message);
+		}
+		else 
+		{	// return err or result
+			console.log("DB Results:"+JSON.stringify(rows, null, 2));
+			callback(rows);
+		}
+		connection.end();
+		console.log("\nConnection closed..");
+	});
+
+
+
+}
 
 function storeData(callback,sqlQuery){
 	
@@ -87,3 +112,4 @@ function updateData(callback,sqlQuery){
 exports.storeData=storeData;
 exports.fetchData=fetchData;
 exports.updateData = updateData;
+exports.fetchBlockingData = fetchBlockingData;

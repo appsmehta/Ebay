@@ -74,6 +74,7 @@ exports.getAuctions = function(req,res){
 
 				var getAuctionquery = "select * from auctions where status='in-progress' AND expires >= NOW()";
 				console.log("Query is:"+getAuctionquery);
+				//var highestbids = [];
 
 				mysql.fetchData(function(err,results){
 				if(err){
@@ -83,9 +84,69 @@ exports.getAuctions = function(req,res){
 				{
 					if(results.length > 0){
 
-					console.log(results[0]);
+					console.log("first callback result " + results[0]);
 
-					res.json({'auctions':results});
+					console.log("calling the bids function");
+					getHighestBids(results, function(highestbids){
+						for (var result in results)
+						{
+							console.log("result is " + result);
+							console.log("GOt the highest bid for :"+results[result].item_name+" as $:"+highestbids[result]);
+
+						}
+						console.log("sent json");
+						res.json({'auctions':results,'highestbids':highestbids});	
+
+					});
+
+					
+						/*for (var result in results)
+
+						{	
+							console.log("Before querying highest bid for:"+results[result].item_name);
+
+							console.log("for "+results[result].item_name+" auction id is :"+results[result].auction_id);
+							var getHighestBidQuery = "select * from bids where bid_amount = (select max(bid_amount) from bids where auction_id = '"+results[result].auction_id+"');";
+
+
+									mysql.fetchData(function(error,bidresults){
+										if(err){
+											throw err;
+											}
+										else 
+										{
+											if(bidresults.length > 0){
+
+										        	console.log(JSON.stringify(results[result]));
+										        	highestbids[result] = bidresults[0]; 
+										       
+										        	//console.log("For Item:"+results[result].item_name +" highest bid is :"+highestbids[result].bid_amount);
+											
+												}
+									 		else {
+
+									 				console.log("Bidding else of "+results[result].item_name);
+									 			 }
+
+										}
+
+										},getHighestBidQuery);
+
+
+
+						}
+
+						for (result in results)
+						{
+							
+							//console.log("For Item:"+results[result].item_name +" highest bid is :"+highestbids[result].bid_amount);
+							console.log(JSON.stringify(highestbids[result]));
+						}*/
+
+
+
+
+					
 						}
 			 		else {
 			 			 }
@@ -248,5 +309,89 @@ exports.sellHome = function(req,res){
 	{
 		res.redirect('/')
 	}
+
+}
+
+exports.registerBid = function(req,res){
+
+	console.log("Bid to server for:"+req.body.Auctionitem.item_name+" worth $: "+req.body.bidAmount);
+
+	console.log(req.body.Auctionitem.auction_id + " "+ req.session.username + " "+ req.body.bidAmount + " "+ "active");
+
+	var insertBidQuery = "Insert into bids (`auction_id`,`bidder`,`bid_amount`,`bid_status`) values ('"+req.body.Auctionitem.auction_id+"','"+ req.session.username +"','"+ req.body.bidAmount+"','active');";
+
+	mysql.storeData(function(err,results){
+				if(err){
+					res.json({"statusCode":500})
+					throw err;
+					}
+				else 
+				{
+					if(results.length > 0){
+
+					console.log(results[0]);
+
+					res.json({ user: 'tobi' })
+					res.end();
+						}
+			 		else {
+			 			 }
+
+				}
+
+				},insertBidQuery);
+
+
+
+
+}
+
+
+
+var getHighestBids = function (auctions, callback) {
+
+
+	var highestBids = []; 
+	var rows = [];
+	var i = 0;
+
+	for (var auctionitem in auctions)
+			{
+
+				console.log("Before querying highest bid for:"+auctionitem);
+
+							console.log("for "+auctions[auctionitem].item_name+" auction id is :"+auctionitem);
+							var getHighestBidQuery = "select * from bids where bid_amount = (select max(bid_amount) from bids where auction_id = '"+auctions[auctionitem].auction_id+"');";
+
+
+									mysql.fetchBlockingData(getHighestBidQuery, function(response){
+													
+													if(response[0]!=null){
+										        	console.log("setting highest bid for......... "+ response[0].auction_id);
+										        	
+										        	highestBids.push(response[0]);
+										        }
+
+										        	console.log("auctionitem " + i);
+
+										        	i++;	
+
+
+										        	if(i == auctions.length){
+										        		console.log("final callback called");
+										        		callback(highestBids);
+										        	}
+
+									});					
+										
+  
+										        	//console.log("For Item:"+results[result].item_name +" highest bid is :"+highestbids[result].bid_amount);
+											
+										
+									 		
+
+										
+
+			}
 
 }

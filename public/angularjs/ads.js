@@ -14,7 +14,7 @@ mainApp.controller('adsController',function($scope,$http){
 					console.log(data);
 
 				}).error(function(){
-					alert("error");			
+					alert("error ads ");			
 				});
 
 
@@ -24,10 +24,13 @@ mainApp.controller('adsController',function($scope,$http){
     url: '/getAuctions'
       }).success(function(auctiondata){
 
-        console.log(auctiondata);
+        //alert(auctiondata);
 
         $scope.AuctionItems = auctiondata.auctions;
-        console.log($scope.AuctionItems[0].expires instanceof Date);
+        console.log(auctiondata);
+
+        $scope.highestbids = auctiondata.highestbids;
+        
         /*console.log("date is"+auctiondata.auctions[0].posted_at );
          var numberOfDaysToAdd = 4;
          var expires = new Date(auctiondata.auctions[0].posted_at);
@@ -39,9 +42,9 @@ mainApp.controller('adsController',function($scope,$http){
 
 
 
-      }).error(function(){
+      }).error(function(error){
 
-        console.log("error");
+        console.log("error auctions " + error);
 
       })
 
@@ -92,6 +95,24 @@ mainApp.controller('adsController',function($scope,$http){
 
 
       )
+
+  }
+
+
+  $scope.registerBid = function(AuctionItem,bidAmount)
+  {
+
+
+    console.log("Bid called for:"+AuctionItem.item_name,bidAmount);
+     $http.post('/registerBid',{"Auctionitem":AuctionItem,"bidAmount":bidAmount})
+     .then(function(response)
+     {
+
+
+      console.log(response);
+     })
+
+
 
   }
 

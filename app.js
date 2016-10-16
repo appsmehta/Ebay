@@ -34,6 +34,7 @@ app.use(express.bodyParser());
 app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
+app.disable('etag');
 
 // development only
 if ('development' == app.get('env')) {
@@ -62,6 +63,7 @@ app.post('/postAuction',adM.postAuction);
 app.get('/getAuctions',adM.getAuctions);
 app.get('/getBoughtItems',aboutM.getBoughtItems);
 app.get('/getSoldItems',aboutM.getSoldItems);
+app.post('/registerBid',adM.registerBid);
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
