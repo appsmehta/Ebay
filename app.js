@@ -70,7 +70,7 @@ app.post('/postAuction',adM.postAuction);
 app.post('/registerBid',adM.registerBid);
 app.post('/concludeAuction',adM.concludeAuction);
 
-
+pool.createNewPool(25);
 
 
 http.createServer(app).listen(app.get('port'), function(){

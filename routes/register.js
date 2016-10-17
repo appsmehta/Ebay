@@ -15,8 +15,8 @@ exports.signup = function(req, res){
 	password=req.param('inputpassword');
 	firstName=req.param('inputfirstName');
 	lastName=req.param('inputlastName');
-   
-   console.log(emailId+reenteredemail+password+firstName+lastName);
+
+	console.log(emailId+reenteredemail+password+firstName+lastName);
 
 	var salt = "theSECRETString";
 	password = crypto.createHash('sha512').update(password + salt).digest("hex");
@@ -32,12 +32,12 @@ exports.signup = function(req, res){
 			throw err;
 		}
 		else
-			{
-			 console.log("entered data");
-			 console.log(results);
-			 
-			 res.send("Tamaru Thai Gyu!");
-			}
+		{
+			console.log("entered data");
+			console.log(results);
+
+			res.send("OK");
+		}
 	},getUser);
 	
 	
@@ -58,41 +58,41 @@ exports.authenticate= function(req,res){
 	
 	console.log("Query is:"+checkUser);
 	mysql.fetchData(function(err,results){
-	if(err){
-		throw err;
-	}
-	else 
-	{
-		if(results.length > 0){
-			console.log("valid Login");
-			req.session.username = username;
-			req.session.previous_logged_in = dateFormat(results[0].last_logged_in, "yyyy:mm:dd HH:MM:ss");
-			var previous_logged_in=results[0].last_logged_in;
-			console.log("Previous login:"+previous_logged_in);
-			var now = new Date();
-			console.log(now);
-			var mydate = dateFormat(now, "yyyy:mm:dd HH:MM:ss");
-			console.log(mydate);
+		if(err){
+			throw err;
+		}
+		else 
+		{
+			if(results.length > 0){
+				console.log("valid Login");
+				req.session.username = username;
+				req.session.previous_logged_in = dateFormat(results[0].last_logged_in, "yyyy:mm:dd HH:MM:ss");
+				var previous_logged_in=results[0].last_logged_in;
+				console.log("Previous login:"+previous_logged_in);
+				var now = new Date();
+				console.log(now);
+				var mydate = dateFormat(now, "yyyy:mm:dd HH:MM:ss");
+				console.log(mydate);
 
 
 
-			var updateLastLoginQuery = "update users set `last_logged_in`='"+mydate+"' where `email`='"+req.session.username+"';";
+				var updateLastLoginQuery = "update users set `last_logged_in`='"+mydate+"' where `email`='"+req.session.username+"';";
 
-			 mysql.storeData(function(err,results){
+				/*mysql.storeData(function(err,results){
 					if(err){
 						throw err;
 					}
 					else
-						{
-						 console.log("updated login timestamp data");
-						 console.log(results);
-						 
+					{
+						console.log("updated login timestamp data");
+						console.log(results);
+
 						 //res.send("Tamaru Thai Gyu!");
 						}
-				},updateLastLoginQuery);
+					},updateLastLoginQuery);*/
 
 
-			console.log("Session initialized");
+				console.log("Session initialized");
 		/*	ejs.renderFile('./views/successLogin.ejs', { data: results } , function(err, result) {
 		        // render on success
 		        if (!err) {
@@ -104,10 +104,10 @@ exports.authenticate= function(req,res){
 		            console.log(err);
 		        }
 		    });*/
-			json_responses = {"statusCode" : 200,"username":req.session.username,"previous_logged_in":previous_logged_in};
-			res.send(json_responses);
-			
-			 
+		    json_responses = {"statusCode" : 200,"username":req.session.username,"previous_logged_in":"n/a"};
+		    res.send(json_responses);
+
+
 		}
 		else {    
 			
@@ -123,25 +123,25 @@ exports.authenticate= function(req,res){
 		            console.log(err);
 		        }
 		    });*/
-			res.send("Na thyu !");
+		    res.send("Na thyu !");
 		}
-		 
+
 		
 	}  
 },checkUser);
 
-		
+
 }
 exports.logout = function(req,res)
-	{
-		winston.info("Clicked: Logout");
+{
+	winston.info("Clicked: Logout");
 
 
-		req.session.destroy();
+	req.session.destroy();
 	res.redirect('/');
-	}
-	
-	
+}
+
+
 	//res.send("SignIN API success");
   //	res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
   	//res.render('login', { title : 'About'});
