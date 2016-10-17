@@ -4,6 +4,7 @@ exports.home = function (req,res)
 		console.log("checkout page details:");
 		console.log(req.session.cartqty);
 		console.log(req.session.checkoutAmount);
+		winston.info("Clicked:checkout");
 
 		if(req.session.username!=undefined){
 

@@ -4,8 +4,32 @@ require("client-sessions");
 var dateFormat = require('dateformat');
 var now = "2016-10-13T10:48:31.000Z";
 var winston = require('../log.js');
+
+
+const fs = require('fs');
+const env = process.env.NODE_ENV || 'development';
+const logDir = 'log';
+// Create the log directory if it does not exist
+if (!fs.existsSync(logDir)) {
+  fs.mkdirSync(logDir);
+}
+const tsFormat = () => (new Date()).toLocaleTimeString();
+const logger = new (winston.Logger)({
+  transports: [
+   
+    new (winston.transports.File)({
+      filename: `${logDir}/bids.log`,
+      timestamp: tsFormat,
+      level: env === 'development' ? 'debug' : 'info'
+    })
+  ]
+});
+
+
+
 exports.ad = function(req,res) {
 
+	winston.info("Clicked: Daily Deals");
 	if(req.session.username!=undefined)
 	{	res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
 		res.render("ads",{"username":req.session.username});
@@ -27,6 +51,7 @@ exports.getAds = function(req,res) {
 
 	if(req.session.username!=undefined)
 	{
+		winston.info("Requested all ads");
 
 		var getAdquery = "select * from advertisements";
 		console.log("Query is:"+getAdquery);
@@ -62,7 +87,7 @@ exports.getAds = function(req,res) {
 
 exports.getAuctions = function(req,res){
 
-
+	winston.info("Requested all auctions");
 	console.log("Trying dateformat");
 
 	console.log(dateFormat(now, "fullDate"));
@@ -176,6 +201,7 @@ exports.getAuctions = function(req,res){
 	{
 		console.log(req.body.item_quantity);
 
+		winston.info("Clicked:Post Ad");
 
 		var postAdquery = "insert into advertisements (`item_name`, `item_description`, `seller_name`, `item_price`, `item_quantity`) values ('"+req.body.item_name+"','"+req.body.item_description+"','"+req.session.username+"','"+req.body.item_price+"','"+req.body.item_quantity+"');";
 		console.log("Query is:"+postAdquery);
@@ -206,7 +232,7 @@ exports.getAuctions = function(req,res){
 
 exports.postAuction = function(req,res) {
 
-
+	winston.info("Clicked:Post Auction");
 	var expirydate = new Date();
 	expirydate.setDate(expirydate.getDate() + 4);
 	console.log(expirydate);
@@ -248,7 +274,7 @@ exports.postAuction = function(req,res) {
 
 
 exports.addtoCart = function(req,res){
-
+	winston.info("Clicked: Add to Cart on:"+req.body.product.item_name);
 	req.session.cartitems.push(req.body.product);
 	req.session.cartqty.push(req.body.quantity);
 //console.log("cost for :"+req.body.product.item_name+" is:"+(req.body.product.item_price*req.body.quantity));
@@ -261,7 +287,7 @@ req.session.checkoutAmount = req.session.checkoutAmount + (req.body.product.item
 }
 
 exports.removeFromCart = function(req,res){
-
+winston.info("Clicked: Remove from Cart on:"+req.body.product.item_name);
 	console.log("remove cart called");
 	console.log(req.body.product+" and quantity"+req.body.qty);
 	console.log(req.session.cartitems[req.body.product]);
@@ -313,6 +339,8 @@ exports.sellHome = function(req,res){
 }
 
 exports.registerBid = function(req,res){
+
+	logger.info("User:"+req.session.username+" bid for "+req.body.Auctionitem.item_name+ "item id:"+req.body.Auctionitem.auction_id+" Amount:"+req.body.bidAmount);	
 
 	console.log("Bid to server for:"+req.body.Auctionitem.item_name+" worth $: "+req.body.bidAmount);
 
@@ -457,3 +485,5 @@ exports.concludeAuction = function (req,res){
 
 
 }
+
+

@@ -3,6 +3,8 @@ var ejs = require("ejs");
 var mysql = require('./mysql');
 
 exports.validate = function (req,res){
+
+	winston.info("Clicked:PayNow");
 	
 	console.log(req.body);
 	var allValid=false;

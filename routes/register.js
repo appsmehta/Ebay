@@ -6,7 +6,7 @@ var winston = require('../log.js');
 
 exports.signup = function(req, res){
 
-
+	winston.info("Clicked: Register");
 	console.log("inside new signup register");
 	//console.log(req);
 
@@ -45,7 +45,7 @@ exports.signup = function(req, res){
 
 exports.authenticate= function(req,res){
 	console.log("inside signin register");
-	
+	winston.info("Clicked: Log In");
 	var username = req.param('username');
 	var password = req.param('password');
 	
@@ -134,7 +134,7 @@ exports.authenticate= function(req,res){
 }
 exports.logout = function(req,res)
 	{
-
+		winston.info("Clicked: Logout");
 
 
 		req.session.destroy();

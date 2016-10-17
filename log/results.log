@@ -1,16 +1,118 @@
 
-{"level":"info","message":"Hello world","timestamp":"2016-10-17T01:38:09.678Z"}
-{"level":"info","message":"Hello world","timestamp":"2016-10-17T01:38:15.159Z"}
-{"level":"info","message":"Hello world","timestamp":"2016-10-17T01:38:37.549Z"}
-{"level":"info","message":"called About profile","timestamp":"2016-10-17T01:38:54.254Z"}
-{"level":"info","message":"Hello world","timestamp":"2016-10-17T01:39:23.750Z"}
-{"level":"info","message":"Hello world","timestamp":"2016-10-17T01:39:43.444Z"}
-{"level":"info","message":"Hello world","timestamp":"2016-10-17T01:39:51.045Z"}
-{"level":"info","message":"Hello world","timestamp":"2016-10-17T01:39:57.673Z"}
-{"level":"info","message":"Hello world","timestamp":"2016-10-17T01:40:02.315Z"}
-{"level":"info","message":"Hello world","timestamp":"2016-10-17T01:40:06.849Z"}
-{"level":"info","message":"Hello world","timestamp":"2016-10-17T01:40:09.969Z"}
-{"level":"info","message":"Hello world","timestamp":"2016-10-17T01:40:15.150Z"}
 {"level":"info","message":"Hello world","timestamp":"2016-10-17T01:40:52.347Z"}
 {"level":"info","message":"Hello world","timestamp":"2016-10-17T01:42:09.575Z"}
 {"level":"info","message":"Hello world","timestamp":"2016-10-17T01:42:26.866Z"}
+{"level":"info","message":"Hello world","timestamp":"2016-10-17T01:53:47.340Z"}
+{"level":"info","message":"Hello world","timestamp":"2016-10-17T01:53:49.515Z"}
+{"level":"info","message":"Hello world","timestamp":"2016-10-17T01:53:56.412Z"}
+{"level":"info","message":"Clicked About profile","timestamp":"2016-10-17T01:54:23.217Z"}
+{"level":"info","message":"Clicked About profile","timestamp":"2016-10-17T01:54:25.371Z"}
+{"level":"info","message":"Clicked :My Orders","timestamp":"2016-10-17T01:54:27.201Z"}
+{"level":"info","message":"Clicked About profile","timestamp":"2016-10-17T01:54:30.867Z"}
+{"level":"info","message":"Clicked :My Bids","timestamp":"2016-10-17T01:54:32.156Z"}
+{"level":"info","message":"Clicked :My Sold Items","timestamp":"2016-10-17T01:54:35.347Z"}
+{"level":"info","message":"Clicked :My Orders","timestamp":"2016-10-17T01:54:36.107Z"}
+{"level":"info","message":"Hello world","timestamp":"2016-10-17T01:57:19.399Z"}
+{"level":"info","message":"Hello world","timestamp":"2016-10-17T01:58:24.889Z"}
+{"level":"info","message":"Clicked:PayNow","timestamp":"2016-10-17T01:58:56.536Z"}
+{"level":"info","message":"Hello world","timestamp":"2016-10-17T01:59:44.900Z"}
+{"level":"info","message":"Hello world","timestamp":"2016-10-17T02:00:00.143Z"}
+{"level":"info","message":"Hello world","timestamp":"2016-10-17T02:00:32.175Z"}
+{"level":"info","message":"Hello world","timestamp":"2016-10-17T02:01:03.603Z"}
+{"level":"info","message":"Hello world","timestamp":"2016-10-17T02:01:14.678Z"}
+{"level":"info","message":"Hello world","timestamp":"2016-10-17T02:02:20.563Z"}
+{"level":"info","message":"Hello world","timestamp":"2016-10-17T02:02:49.094Z"}
+{"level":"info","message":"Hello world","timestamp":"2016-10-17T02:02:49.803Z"}
+{"level":"info","message":"Hello world","timestamp":"2016-10-17T02:02:58.924Z"}
+{"level":"info","message":"Hello world","timestamp":"2016-10-17T02:03:03.620Z"}
+{"level":"info","message":"Clicked: Daily Deals","timestamp":"2016-10-17T02:03:24.116Z"}
+{"level":"info","message":"Requested all ads","timestamp":"2016-10-17T02:03:24.306Z"}
+{"level":"info","message":"Requested all auctions","timestamp":"2016-10-17T02:03:24.419Z"}
+{"level":"info","message":"Clicked About profile","timestamp":"2016-10-17T02:03:29.011Z"}
+{"level":"info","message":"Clicked :My Orders","timestamp":"2016-10-17T02:03:31.519Z"}
+{"level":"info","message":"Clicked: Daily Deals","timestamp":"2016-10-17T02:03:38.183Z"}
+{"level":"info","message":"Requested all ads","timestamp":"2016-10-17T02:03:38.329Z"}
+{"level":"info","message":"Requested all auctions","timestamp":"2016-10-17T02:03:38.331Z"}
+{"level":"info","message":"Clicked: Add to Cart on:Samsung Galaxy Note 7","timestamp":"2016-10-17T02:03:42.605Z"}
+{"level":"info","message":"Clicked: Add to Cart on:FItBit Pro","timestamp":"2016-10-17T02:03:46.784Z"}
+{"level":"info","message":"Clicked: Add to Cart on:XBox 360","timestamp":"2016-10-17T02:03:50.908Z"}
+{"level":"info","message":"Clicked: Remove from Cart on:undefined","timestamp":"2016-10-17T02:03:54.246Z"}
+{"level":"info","message":"Clicked: Add to Cart on:Samsung Galaxy Note 7","timestamp":"2016-10-17T02:03:59.051Z"}
+{"level":"info","message":"Clicked: Remove from Cart on:undefined","timestamp":"2016-10-17T02:04:01.388Z"}
+{"level":"info","message":"Clicked:checkout","timestamp":"2016-10-17T02:04:03.245Z"}
+{"level":"info","message":"Clicked: Daily Deals","timestamp":"2016-10-17T02:04:33.909Z"}
+{"level":"info","message":"Requested all ads","timestamp":"2016-10-17T02:04:34.079Z"}
+{"level":"info","message":"Requested all auctions","timestamp":"2016-10-17T02:04:34.082Z"}
+{"level":"info","message":"Clicked: Remove from Cart on:undefined","timestamp":"2016-10-17T02:04:37.686Z"}
+{"level":"info","message":"Clicked: Remove from Cart on:undefined","timestamp":"2016-10-17T02:04:38.487Z"}
+{"level":"info","message":"Clicked:checkout","timestamp":"2016-10-17T02:04:40.874Z"}
+{"level":"info","message":"Clicked: Daily Deals","timestamp":"2016-10-17T02:04:44.860Z"}
+{"level":"info","message":"Requested all ads","timestamp":"2016-10-17T02:04:45.002Z"}
+{"level":"info","message":"Requested all auctions","timestamp":"2016-10-17T02:04:45.004Z"}
+{"level":"info","message":"Clicked: Add to Cart on:iPhone 7","timestamp":"2016-10-17T02:04:48.601Z"}
+{"level":"info","message":"Clicked:checkout","timestamp":"2016-10-17T02:04:49.873Z"}
+{"level":"info","message":"Clicked: Daily Deals","timestamp":"2016-10-17T02:04:55.422Z"}
+{"level":"info","message":"Clicked: Daily Deals","timestamp":"2016-10-17T02:04:58.318Z"}
+{"level":"info","message":"Requested all ads","timestamp":"2016-10-17T02:04:58.435Z"}
+{"level":"info","message":"Requested all auctions","timestamp":"2016-10-17T02:04:58.437Z"}
+{"level":"info","message":"Clicked: Remove from Cart on:undefined","timestamp":"2016-10-17T02:05:00.027Z"}
+{"level":"info","message":"Clicked: Add to Cart on:iPhone 7 Plus","timestamp":"2016-10-17T02:05:04.676Z"}
+{"level":"info","message":"Clicked:checkout","timestamp":"2016-10-17T02:05:06.246Z"}
+{"level":"info","message":"Clicked:checkout","timestamp":"2016-10-17T02:05:07.894Z"}
+{"level":"info","message":"Clicked:PayNow","timestamp":"2016-10-17T02:05:27.178Z"}
+{"level":"info","message":"Clicked About profile","timestamp":"2016-10-17T02:05:45.282Z"}
+{"level":"info","message":"Clicked :My Orders","timestamp":"2016-10-17T02:05:49.845Z"}
+{"level":"info","message":"Clicked :My Sold Items","timestamp":"2016-10-17T02:05:52.655Z"}
+{"level":"info","message":"Clicked :My Sold Items","timestamp":"2016-10-17T02:05:52.696Z"}
+{"level":"info","message":"Clicked :My Orders","timestamp":"2016-10-17T02:06:02.095Z"}
+{"level":"info","message":"Clicked: Daily Deals","timestamp":"2016-10-17T02:06:13.635Z"}
+{"level":"info","message":"Requested all ads","timestamp":"2016-10-17T02:06:13.818Z"}
+{"level":"info","message":"Requested all auctions","timestamp":"2016-10-17T02:06:13.821Z"}
+{"level":"info","message":"Hello world","timestamp":"2016-10-17T02:12:13.496Z"}
+{"level":"info","message":"Hello world","timestamp":"2016-10-17T02:14:43.520Z"}
+{"level":"info","message":"Hello world","timestamp":"2016-10-17T02:16:44.525Z"}
+{"level":"info","message":"Hello world","timestamp":"2016-10-17T02:18:22.190Z"}
+{"level":"info","message":"Clicked:Signin","timestamp":"2016-10-17T02:18:32.318Z"}
+{"level":"info","message":"Clicked: Log In","timestamp":"2016-10-17T02:18:39.702Z"}
+{"level":"info","message":"Clicked: Daily Deals","timestamp":"2016-10-17T02:18:46.063Z"}
+{"level":"info","message":"Requested all ads","timestamp":"2016-10-17T02:18:46.405Z"}
+{"level":"info","message":"Requested all auctions","timestamp":"2016-10-17T02:18:46.409Z"}
+{"level":"info","message":"Clicked: Add to Cart on:iWatch","timestamp":"2016-10-17T02:18:58.509Z"}
+{"level":"info","message":"Hello world","timestamp":"2016-10-17T02:19:10.460Z"}
+{"level":"info","message":"Hello world","timestamp":"2016-10-17T02:19:27.805Z"}
+{"level":"info","message":"Clicked: Daily Deals","timestamp":"2016-10-17T02:19:40.266Z"}
+{"level":"info","message":"Requested all ads","timestamp":"2016-10-17T02:19:40.759Z"}
+{"level":"info","message":"Requested all auctions","timestamp":"2016-10-17T02:19:40.916Z"}
+{"level":"info","message":"Hello world","timestamp":"2016-10-17T02:20:43.431Z"}
+{"level":"info","message":"Hello world","timestamp":"2016-10-17T02:20:47.710Z"}
+{"level":"info","message":"Clicked: Daily Deals","timestamp":"2016-10-17T02:21:01.819Z"}
+{"level":"info","message":"Requested all ads","timestamp":"2016-10-17T02:21:02.274Z"}
+{"level":"info","message":"Requested all auctions","timestamp":"2016-10-17T02:21:02.445Z"}
+{"level":"info","message":"Clicked: Daily Deals","timestamp":"2016-10-17T02:21:21.396Z"}
+{"level":"info","message":"Requested all ads","timestamp":"2016-10-17T02:21:21.829Z"}
+{"level":"info","message":"Requested all auctions","timestamp":"2016-10-17T02:21:21.834Z"}
+{"level":"info","message":"Clicked: Daily Deals","timestamp":"2016-10-17T02:21:34.970Z"}
+{"level":"info","message":"Requested all ads","timestamp":"2016-10-17T02:21:35.440Z"}
+{"level":"info","message":"Requested all auctions","timestamp":"2016-10-17T02:21:35.447Z"}
+{"level":"info","message":"Clicked: Logout","timestamp":"2016-10-17T02:21:43.275Z"}
+{"level":"info","message":"Clicked:Signin","timestamp":"2016-10-17T02:21:45.539Z"}
+{"level":"info","message":"Clicked: Register","timestamp":"2016-10-17T02:22:16.648Z"}
+{"level":"info","message":"Clicked: Register","timestamp":"2016-10-17T02:22:29.193Z"}
+{"level":"info","message":"Clicked: Register","timestamp":"2016-10-17T02:22:29.679Z"}
+{"level":"info","message":"Clicked:Signin","timestamp":"2016-10-17T02:22:39.873Z"}
+{"level":"info","message":"Clicked: Log In","timestamp":"2016-10-17T02:22:51.105Z"}
+{"level":"info","message":"Clicked: Daily Deals","timestamp":"2016-10-17T02:23:05.213Z"}
+{"level":"info","message":"Requested all ads","timestamp":"2016-10-17T02:23:06.995Z"}
+{"level":"info","message":"Requested all auctions","timestamp":"2016-10-17T02:23:06.998Z"}
+{"level":"info","message":"Hello world","timestamp":"2016-10-17T02:23:53.719Z"}
+{"level":"info","message":"Hello world","timestamp":"2016-10-17T02:24:01.241Z"}
+{"level":"info","message":"Hello world","timestamp":"2016-10-17T02:24:57.382Z"}
+{"level":"info","message":"Clicked: Daily Deals","timestamp":"2016-10-17T02:25:14.379Z"}
+{"level":"info","message":"Requested all ads","timestamp":"2016-10-17T02:25:14.618Z"}
+{"level":"info","message":"Requested all auctions","timestamp":"2016-10-17T02:25:14.623Z"}
+{"level":"info","message":"Clicked: Daily Deals","timestamp":"2016-10-17T02:27:15.484Z"}
+{"level":"info","message":"Requested all ads","timestamp":"2016-10-17T02:27:15.860Z"}
+{"level":"info","message":"Requested all auctions","timestamp":"2016-10-17T02:27:15.862Z"}
+{"level":"info","message":"Clicked: Daily Deals","timestamp":"2016-10-17T02:28:13.757Z"}
+{"level":"info","message":"Requested all ads","timestamp":"2016-10-17T02:28:14.001Z"}
+{"level":"info","message":"Requested all auctions","timestamp":"2016-10-17T02:28:14.004Z"}
