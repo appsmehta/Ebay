@@ -2,7 +2,7 @@ var ejs= require('ejs');
 var mysql = require('mysql');
 
 //Put your mysql configuration settings - user, password, database and port
-function getConnection(){
+exports.getConnection = function getConnection(){
 	var connection = mysql.createConnection({
 	    host     : 'localhost',
 	    user     : 'apoorv',
@@ -10,44 +10,53 @@ function getConnection(){
 	    database : 'ebay_schema',
 	    port	 : 3306
 	});
+	//console.log("get connection method " + connection.toString());
 	return connection;
-}
+};
 
 
 function fetchData(callback,sqlQuery){
 	
 	console.log("\nSQL Query::"+sqlQuery);
 	
-	var connection=getConnection();
+	var connection=this.getConnection();
 	
-	connection.query(sqlQuery, function(err, rows, fields) {
-		if(err){
-			console.log("ERROR: " + err.message);
-		}
-		else 
-		{	// return err or result
-			console.log("DB Results:"+rows);
-			callback(err, rows);
-		}
-			console.log("\nConnection closed..");
-	connection.end();
 
-	});
-}	
+			connection.query(sqlQuery, function(err, rows, fields) {
+			if(err){
+				console.log("ERROR: " + err.message);
+			}
+			else 
+			{	// return err or result
+				console.log("DB Results:"+rows);
+				callback(err, rows);
+			}
+				console.log("\nConnection closed..");
+				
+		connection.end();
+		});
+
+
+
+
+	};
+	
+	
+	
 
 
 function fetchBlockingData(sqlQuery, callback){
 
 console.log("\nSQL Query::"+sqlQuery);
 	
-	var connection=getConnection();
+	var connection=this.getConnection();
 	
 	connection.query(sqlQuery, function(err, rows, fields) {
 		if(err){
 			console.log("ERROR: " + err.message);
 		}
 		else 
-		{	// return err or result
+		{	// return err or Results
 			console.log("DB Results:"+JSON.stringify(rows, null, 2));
 			callback(rows);
 		}
@@ -63,7 +72,7 @@ function storeData(callback,sqlQuery){
 	
 	console.log("\nSQL Query::"+sqlQuery);
 	
-	var connection=getConnection();
+	var connection=this.getConnection();
 	
 	connection.query(sqlQuery, function(err, rows, fields) {
 		if(err){
@@ -87,7 +96,7 @@ function updateData(callback,sqlQuery){
 
 	console.log("update Query:"+sqlQuery);
 
-	var connection = getConnection();
+	var connection = this.getConnection();
 
 	connection.query(sqlQuery,function(err,rows,fields){
 

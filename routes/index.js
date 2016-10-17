@@ -2,7 +2,7 @@
 /*
  * GET home page.
  */
-
+var winston = require('../log.js');
 exports.index = function(req, res){
 
 if(req.session){

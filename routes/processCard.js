@@ -1,4 +1,4 @@
-
+var winston = require('../log.js');
 var ejs = require("ejs");
 var mysql = require('./mysql');
 

@@ -13,9 +13,11 @@ var express = require('express')
   ,session = require('client-sessions')
   ,aboutM = require('./routes/about')
   ,adM = require('./routes/adM')
-  ,checkout = require('./routes/checkout'),
-  processCard = require('./routes/processCard');
-
+  ,checkout = require('./routes/checkout')
+  ,processCard = require('./routes/processCard')
+  ,pool = require('./routes/sql_pool');
+  var logger=require('./log.js'); 
+  
 var app = express();
 
 // all environments
@@ -44,26 +46,47 @@ if ('development' == app.get('env')) {
 app.get('/', routes.index);
 app.get('/signIn', login.signIn);
 app.get('/Register', login.signIn);
-app.post('/Register',register.signup);
-app.post('/checklogin',register.authenticate);
+app.get('/ads',adM.ad);
 app.get('/about',aboutM.about);
 app.get('/logout',register.logout);
 app.get('/aboutProfile',aboutM.getProfile);
-app.post('/updateAbout',aboutM.updateProfile);
-app.get('/ads',adM.ad);
 app.get('/getAds',adM.getAds);
-app.post('/postAd',adM.postAd);
-app.post('/addItem',adM.addtoCart);
 app.get('/checkout',checkout.home);
 app.get('/getCart',checkout.getCart);
-app.post('/processCard',processCard.validate);
-app.post('/removeItem',adM.removeFromCart);
 app.get('/sell',adM.sellHome);
-app.post('/postAuction',adM.postAuction);
 app.get('/getAuctions',adM.getAuctions);
 app.get('/getBoughtItems',aboutM.getBoughtItems);
 app.get('/getSoldItems',aboutM.getSoldItems);
+app.get('/MyBidResults',aboutM.getBidResults);
+
+app.post('/Register',register.signup);
+app.post('/checklogin',register.authenticate);
+app.post('/updateAbout',aboutM.updateProfile);
+app.post('/postAd',adM.postAd);
+app.post('/addItem',adM.addtoCart);
+app.post('/processCard',processCard.validate);
+app.post('/removeItem',adM.removeFromCart);
+app.post('/postAuction',adM.postAuction);
 app.post('/registerBid',adM.registerBid);
+app.post('/concludeAuction',adM.concludeAuction);
+
+
+
+
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
+
+/*const tsFormat = () => (new Date()).toLocaleTimeString();
+
+const logger = new (winston.Logger)({
+  transports: [
+   
+    new (winston.transports.File)({
+      filename: `${logDir}/results.log`,
+      timestamp: tsFormat,
+      level: env === 'development' ? 'debug' : 'info'
+    })
+  ]
+});*/
+logger.info('Hello world');

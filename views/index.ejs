@@ -35,7 +35,7 @@
       			 <span> Hi! <%=username%> <%if(!username) { %><a href ="/signIn">Sign in</button> </a> or <a href="/Register" class="tile">Register</a><%}%></span>
       		  </li>
       		  <li>
-      			   <a href="#"><span> Daily Deals</span></a>
+      			   <a href="/ads"><span> Daily Deals</span></a>
       		  </li>
       	   </span>
       	   </ul>
@@ -77,7 +77,7 @@
   			 		<span>
             <a href="#"><img src="/img/logo.png" height="15%" width="15%"></a>
               
-  			 		Shop by category<input type="search" class="form-control" size="100px" name="searchquery" placeholder="Search..." style="width:40%; display:inline">
+  			 		Shop by category <input type="search" class="form-control" size="100px" name="searchquery" placeholder="Search..." style="width:40%; display:inline">
   			 		<button class="btn btn-primary"> Search!</button></span>
   			 		</td>
   			 		
@@ -93,10 +93,10 @@
     	</div>
     	<div class="row ebay-main" style="height:200px;">
     	 	<div class="col-md-12">
-    			<p> Shop by category</p>
-          <!-- SLider -->
+    			
+          <!-- Slider courtesy : zuraiz https://codepen.io/zuraizm/pen/vGDHl -->
 
-           <h1>Incredibly Basic Slider</h1>
+           
               <div id="slider">
                 <a href="#" class="control_next">>></a>
                 <a href="#" class="control_prev">
@@ -109,11 +109,11 @@
                     </ul>
               </div>
 
-              <div class="slider_option">
+              <!-- <div class="slider_option">
                 <input type="checkbox" id="checkbox" checked="true" ng-show="true">
                 <label for="checkbox">Autoplay Slider</label>
               </div>
-
+ -->
 
 
 
@@ -125,14 +125,20 @@
     	</div>
     	<div class="row" style="height:400px;">
     		<div class="col-md-6">
-    			<h1> Main tab</h1>
+    			<!-- <h1> Main tab</h1> -->
     		</div>
     	</div>
     	<div class="row" style="height:200px;">
     		<div class="col-md-2">
-    			<p>Footer area</p>
+    			<h2>Home</h2>
+          <a href="/about"><h3> My Account </h3></a>
     		</div>
+        <div class="col-md-2">
+       <a href="/ads"> <h2> Buy Items </h2></a>
     	</div>
+      <div class="col-md-2">
+      <a href="/sell"><h2> Seller Home</h2></a>
+      </div>
 
 
   </div>

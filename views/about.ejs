@@ -17,9 +17,10 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3 jumbotron" style="height:100%">
-      <h3> My Profile </h3>
+      <h3> <button type="button btn-info-grey" ng-click="showAbout()"> My Profile </h3>
       <h3> <button type="button btn-info-grey" ng-click="showBoughtItems()">My Orders</button> </h3>
       <h3> <button type="button btn-info-grey" ng-click="showSoldItems()">My Sold Items</button> <h3>
+      <h3> <button type="button btn-info-grey" ng-click="showBids()"> My Bids </button></h3>
     </div>
     <div class="col-md-8 jumbotron" style="background-color:#FFFFFF">
       <div id="aboutprofile" ng-show="showAbout">
@@ -51,7 +52,7 @@
         <h3> My Bought Items </h3>
         <div ng-repeat="boughtItem in boughtItems">
         
-           <h4>Item Name: {{boughtItem.item_name}}</h4><br>
+           <h4>Item Name: {{boughtItem.item_name}}</h4>
             <b>Quantity:{{boughtItem.qty}}</b><br>
             <b>Cost:{{boughtItem.cost}}</b><br>
             <b>Sold By:{{boughtItem.seller_name}}</b><br>
@@ -63,12 +64,22 @@
         <h3> My Sold Items </h3>
         <div ng-repeat="soldItem in soldItems">
 
-          <h4> Item Name: {{soldItem.item_name}}</h4><br>
+          <h4> Item Name: {{soldItem.item_name}}</h4>
           <b>Quantity : {{soldItem.qty}}</b><br>
           <b>Amount: {{soldItem.cost}}</b><br>
           <b>Buyer: {{soldItem.buyer}}</b><br>
 
           </div>
+      </div>
+
+
+      <div id="MyBids" ng-show="showBids">
+        <h3> My Bids </h3><br><br>
+        <div ng-repeat="bid in MyBids">
+          <h4> Item Name: {{bid.item_name}}</h4>
+          <b> Bid Amount:</b>{{bid.bid_amount}}<br>
+          <b> Bid Time:</b> {{bid.bid_time | date}}<br>
+           Bid Status:<b> {{bid.bid_status}}</b><br><br>
       </div>
 
 

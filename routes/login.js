@@ -1,3 +1,4 @@
+var winston = require('../log.js');
 exports.signIn = function(req, res){
 
 

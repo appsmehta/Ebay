@@ -1,17 +1,21 @@
+var winston = require('../log.js');
 exports.home = function (req,res)
 {
 		console.log("checkout page details:");
 		console.log(req.session.cartqty);
 		console.log(req.session.checkoutAmount);
 
-		if(req.session.checkoutAmount!=null){
+		if(req.session.username!=undefined){
 
-
-		res.render('checkout',{data:null,"username":req.session.username,"itemsincart":req.session.cartitems,"orderedquantities":req.session.cartqty,"cost":req.session.checkoutAmount});
+		{res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
+		res.render('checkout',{data:null,"username":req.session.username,"itemsincart":req.session.cartitems,"orderedquantities":req.session.cartqty,"cost":req.session.checkoutAmount});}
 	}	
 
-	   else
-	   	res.render('ads',{"username":req.session.username,"message":"Please order atleast one item"});
+	  	else
+
+	{
+		res.redirect('/')
+	}
 
 
 };

@@ -2,6 +2,7 @@ var crypto = require('crypto');
 var mysql = require('./mysql');
 var dateFormat = require('dateFormat');
 require('ejs');
+var winston = require('../log.js');
 
 exports.signup = function(req, res){
 
